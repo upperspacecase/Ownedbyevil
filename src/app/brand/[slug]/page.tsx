@@ -14,6 +14,7 @@ import {
 import { RatingCircle, RatingBar } from "@/components/RatingBadge";
 import BrandCard from "@/components/BrandCard";
 import AlternativeCard from "@/components/AlternativeCard";
+import OwnershipTree from "@/components/OwnershipTree";
 
 export default function BrandPage() {
   const params = useParams();
@@ -70,50 +71,20 @@ export default function BrandPage() {
         <p className="mt-3 text-xs text-stone-500">{brand.description}</p>
       </div>
 
-      {/* ═══ OWNERSHIP CHAIN ═══ */}
+      {/* ═══ OWNERSHIP TREE ═══ */}
       {parent && (
-        <div className="mt-4 rounded-xl border-2 border-red-200 bg-red-50/50 p-4">
-          <p className="text-xs font-black uppercase tracking-wider text-red-600">
-            Owned by
-          </p>
+        <div className="mt-4">
+          <OwnershipTree
+            productName={brand.name}
+            brandName={brand.name}
+            corporation={parent}
+          />
           <Link
             href={`/corporation/${parent.slug}`}
-            className="group mt-2 flex items-center gap-3 rounded-lg bg-white p-3 transition-all hover:shadow-sm"
+            className="mt-2 block text-center text-xs font-bold text-red-600 hover:underline"
           >
-            <div className="flex-1">
-              <p className="text-sm font-black text-stone-900">{parent.name}</p>
-              <p className="text-xs text-stone-500">{parent.country} &middot; {parent.revenue}</p>
-            </div>
-            <div className={`rounded border px-1.5 py-0.5 text-[10px] font-black ${getRatingColor(parent.ethicalRating)}`}>
-              {parent.ethicalRating}
-            </div>
+            See full corporation details &rarr;
           </Link>
-
-          {/* Human owners */}
-          <div className="mt-3">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-red-500">
-              The humans who profit
-            </p>
-            <div className="mt-2 space-y-1">
-              {parent.owners
-                .filter((o) => o.ownershipPercent)
-                .slice(0, 3)
-                .map((owner, i) => (
-                  <div key={i} className="flex items-center justify-between rounded bg-white px-3 py-1.5">
-                    <div>
-                      <p className="text-xs font-bold text-stone-800">{owner.name}</p>
-                      <p className="text-[10px] text-stone-400">{owner.role}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-xs font-black text-red-600">{owner.ownershipPercent}%</p>
-                      {owner.estimatedValue && (
-                        <p className="text-[10px] text-stone-400">{owner.estimatedValue}</p>
-                      )}
-                    </div>
-                  </div>
-                ))}
-            </div>
-          </div>
         </div>
       )}
 

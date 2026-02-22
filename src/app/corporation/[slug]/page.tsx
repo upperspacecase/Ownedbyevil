@@ -11,6 +11,7 @@ import {
 } from "@/data/brands";
 import { RatingCircle, RatingBar } from "@/components/RatingBadge";
 import BrandCard from "@/components/BrandCard";
+import OwnershipTree from "@/components/OwnershipTree";
 
 export default function CorporationPage() {
   const params = useParams();
@@ -36,10 +37,6 @@ export default function CorporationPage() {
     },
     {} as Record<string, typeof ownedBrands>
   );
-
-  const familyOwners = corp.owners.filter((o) => o.type === "family" || o.type === "individual");
-  const institutionalOwners = corp.owners.filter((o) => o.type === "institutional");
-  const executives = corp.owners.filter((o) => o.type === "executive");
 
   return (
     <div className="mx-auto max-w-2xl px-4 pb-24">
@@ -98,116 +95,39 @@ export default function CorporationPage() {
         </div>
       </div>
 
-      {/* ═══ WHO OWNS THIS ═══ */}
-      <div className="mt-4 rounded-xl border-2 border-red-200 bg-red-50/50 p-4">
-        <p className="text-xs font-black uppercase tracking-wider text-red-600">
-          {corp.publiclyTraded ? "Who owns the shares" : "Who owns the company"}
-        </p>
-
-        {/* Family / Individual owners */}
-        {familyOwners.length > 0 && (
-          <div className="mt-3">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-red-500">
-              Individual / Family
-            </p>
-            <div className="mt-1 space-y-1">
-              {familyOwners.map((owner, i) => (
-                <div key={i} className="flex items-center justify-between rounded-lg bg-white px-3 py-2">
-                  <div>
-                    <p className="text-sm font-bold text-stone-900">{owner.name}</p>
-                    <p className="text-[10px] text-stone-400">{owner.role}</p>
-                  </div>
-                  <div className="text-right">
-                    {owner.ownershipPercent && (
-                      <p className="text-sm font-black text-red-600">
-                        {owner.ownershipPercent}%
-                      </p>
-                    )}
-                    {owner.estimatedValue && (
-                      <p className="text-[10px] font-semibold text-stone-500">{owner.estimatedValue}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Institutional */}
-        {institutionalOwners.length > 0 && (
-          <div className="mt-3">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-red-500">
-              Institutional Shareholders
-            </p>
-            <div className="mt-1 space-y-1">
-              {institutionalOwners.map((owner, i) => (
-                <div key={i} className="flex items-center justify-between rounded-lg bg-white px-3 py-2">
-                  <div>
-                    <p className="text-xs font-bold text-stone-800">{owner.name}</p>
-                    <p className="text-[10px] text-stone-400">{owner.role}</p>
-                  </div>
-                  <div className="text-right">
-                    {owner.ownershipPercent && (
-                      <p className="text-xs font-black text-stone-700">
-                        {owner.ownershipPercent}%
-                      </p>
-                    )}
-                    {owner.estimatedValue && (
-                      <p className="text-[10px] text-stone-400">{owner.estimatedValue}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Executives */}
-        {executives.length > 0 && (
-          <div className="mt-3">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-red-500">
-              Key Executives
-            </p>
-            <div className="mt-1 space-y-1">
-              {executives.map((exec, i) => (
-                <div key={i} className="flex items-center justify-between rounded-lg bg-white px-3 py-2">
-                  <p className="text-xs font-bold text-stone-800">{exec.name}</p>
-                  <p className="text-[10px] text-stone-400">{exec.role}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Ownership bar chart */}
-        {corp.owners.some((o) => o.ownershipPercent) && (
-          <div className="mt-4">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-red-500">
-              Ownership breakdown
-            </p>
-            <div className="mt-2 flex h-6 overflow-hidden rounded-full bg-stone-200">
-              {corp.owners
-                .filter((o) => o.ownershipPercent)
-                .map((owner, i) => {
-                  const colors = [
-                    "bg-red-500", "bg-orange-500", "bg-amber-500",
-                    "bg-yellow-500", "bg-stone-400",
-                  ];
-                  return (
-                    <div
-                      key={i}
-                      className={`${colors[i % colors.length]} flex items-center justify-center text-[8px] font-bold text-white`}
-                      style={{ width: `${owner.ownershipPercent}%` }}
-                      title={`${owner.name}: ${owner.ownershipPercent}%`}
-                    >
-                      {(owner.ownershipPercent ?? 0) > 5 ? `${owner.ownershipPercent}%` : ""}
-                    </div>
-                  );
-                })}
-            </div>
-          </div>
-        )}
+      {/* ═══ OWNERSHIP TREE (replaces flat list, enriched with Wikidata) ═══ */}
+      <div className="mt-4">
+        <OwnershipTree corporation={corp} />
       </div>
+
+      {/* Ownership bar chart */}
+      {corp.owners.some((o) => o.ownershipPercent) && (
+        <div className="mt-4 rounded-xl border border-stone-200 bg-white p-4">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-stone-400">
+            Ownership breakdown
+          </p>
+          <div className="mt-2 flex h-6 overflow-hidden rounded-full bg-stone-200">
+            {corp.owners
+              .filter((o) => o.ownershipPercent)
+              .map((owner, i) => {
+                const colors = [
+                  "bg-red-500", "bg-orange-500", "bg-amber-500",
+                  "bg-yellow-500", "bg-stone-400",
+                ];
+                return (
+                  <div
+                    key={i}
+                    className={`${colors[i % colors.length]} flex items-center justify-center text-[8px] font-bold text-white`}
+                    style={{ width: `${owner.ownershipPercent}%` }}
+                    title={`${owner.name}: ${owner.ownershipPercent}%`}
+                  >
+                    {(owner.ownershipPercent ?? 0) > 5 ? `${owner.ownershipPercent}%` : ""}
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      )}
 
       {/* ═══ ISSUES ═══ */}
       {corp.issues.length > 0 && (

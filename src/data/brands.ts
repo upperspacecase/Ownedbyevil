@@ -29,6 +29,7 @@ export interface Corporation {
   owners: HumanOwner[];
   publiclyTraded: boolean;
   stockTicker?: string;
+  wikidataId?: string;
 }
 
 export interface Brand {
@@ -67,6 +68,7 @@ export const corporations: Corporation[] = [
     name: "Nestlé",
     logo: "",
     country: "Switzerland",
+    wikidataId: "Q180",
     revenue: "CHF 93B (~$105B)",
     employees: "270,000+",
     marketCap: "~$250B",
@@ -94,6 +96,7 @@ export const corporations: Corporation[] = [
     name: "Unilever",
     logo: "",
     country: "United Kingdom",
+    wikidataId: "Q35749",
     revenue: "€60B (~$65B)",
     employees: "127,000+",
     marketCap: "~$150B",
@@ -120,6 +123,7 @@ export const corporations: Corporation[] = [
     name: "Procter & Gamble",
     logo: "",
     country: "United States",
+    wikidataId: "Q137058",
     revenue: "$84B",
     employees: "107,000+",
     marketCap: "~$390B",
@@ -145,6 +149,7 @@ export const corporations: Corporation[] = [
     name: "The Coca-Cola Company",
     logo: "",
     country: "United States",
+    wikidataId: "Q2813",
     revenue: "$46B",
     employees: "82,000+",
     marketCap: "~$260B",
@@ -171,6 +176,7 @@ export const corporations: Corporation[] = [
     name: "PepsiCo",
     logo: "",
     country: "United States",
+    wikidataId: "Q193326",
     revenue: "$91B",
     employees: "315,000+",
     marketCap: "~$230B",
@@ -195,6 +201,7 @@ export const corporations: Corporation[] = [
     name: "Mars, Inc.",
     logo: "",
     country: "United States",
+    wikidataId: "Q148211",
     revenue: "$50B+",
     employees: "150,000+",
     ethicalRating: "C",
@@ -217,6 +224,7 @@ export const corporations: Corporation[] = [
     name: "Mondelēz International",
     logo: "",
     country: "United States",
+    wikidataId: "Q55679",
     revenue: "$36B",
     employees: "91,000+",
     marketCap: "~$95B",
@@ -242,6 +250,7 @@ export const corporations: Corporation[] = [
     name: "Kenvue (ex-J&J Consumer)",
     logo: "",
     country: "United States",
+    wikidataId: "Q117216469",
     revenue: "$15B",
     employees: "22,000+",
     marketCap: "~$40B",
@@ -266,6 +275,7 @@ export const corporations: Corporation[] = [
     name: "Danone",
     logo: "",
     country: "France",
+    wikidataId: "Q159258",
     revenue: "€28B (~$30B)",
     employees: "96,000+",
     marketCap: "~$45B",
@@ -289,6 +299,7 @@ export const corporations: Corporation[] = [
     name: "Associated British Foods",
     logo: "",
     country: "United Kingdom",
+    wikidataId: "Q801405",
     revenue: "£20B (~$25B)",
     employees: "133,000+",
     marketCap: "~$18B",
@@ -311,6 +322,7 @@ export const corporations: Corporation[] = [
     name: "Reckitt Benckiser",
     logo: "",
     country: "United Kingdom",
+    wikidataId: "Q3421879",
     revenue: "£14B (~$18B)",
     employees: "40,000+",
     marketCap: "~$45B",
@@ -335,6 +347,7 @@ export const corporations: Corporation[] = [
     name: "Lipton Teas and Infusions (ex-Ekaterra)",
     logo: "",
     country: "Netherlands / Private Equity",
+    wikidataId: "Q108721601",
     revenue: "€2B (~$2.2B)",
     employees: "10,000+",
     ethicalRating: "C",
