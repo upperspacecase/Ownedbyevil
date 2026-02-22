@@ -42,14 +42,14 @@ export function RatingBar({ rating }: { rating: EthicalRating }) {
   return (
     <div className="w-full">
       <div className="mb-1 flex items-center justify-between">
-        <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
+        <span className="text-xs font-medium text-slate-500">
           Ethical Score
         </span>
-        <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+        <span className="text-xs font-semibold text-slate-700">
           {getRatingLabel(rating)}
         </span>
       </div>
-      <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100 dark:bg-slate-800">
+      <div className="h-2 w-full overflow-hidden rounded-full bg-slate-100">
         <div
           className={`h-full rounded-full transition-all duration-700 ${barColors[rating]}`}
           style={{ width: `${ratingValues[rating]}%` }}

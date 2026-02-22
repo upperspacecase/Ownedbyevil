@@ -65,7 +65,7 @@ export const corporations: Corporation[] = [
   {
     slug: "nestle",
     name: "Nestlé",
-    logo: "🏭",
+    logo: "",
     country: "Switzerland",
     revenue: "CHF 93B (~$105B)",
     employees: "270,000+",
@@ -92,7 +92,7 @@ export const corporations: Corporation[] = [
   {
     slug: "unilever",
     name: "Unilever",
-    logo: "🧴",
+    logo: "",
     country: "United Kingdom",
     revenue: "€60B (~$65B)",
     employees: "127,000+",
@@ -118,7 +118,7 @@ export const corporations: Corporation[] = [
   {
     slug: "pg",
     name: "Procter & Gamble",
-    logo: "🧼",
+    logo: "",
     country: "United States",
     revenue: "$84B",
     employees: "107,000+",
@@ -143,7 +143,7 @@ export const corporations: Corporation[] = [
   {
     slug: "coca-cola",
     name: "The Coca-Cola Company",
-    logo: "🥤",
+    logo: "",
     country: "United States",
     revenue: "$46B",
     employees: "82,000+",
@@ -169,7 +169,7 @@ export const corporations: Corporation[] = [
   {
     slug: "pepsico",
     name: "PepsiCo",
-    logo: "🥤",
+    logo: "",
     country: "United States",
     revenue: "$91B",
     employees: "315,000+",
@@ -193,7 +193,7 @@ export const corporations: Corporation[] = [
   {
     slug: "mars",
     name: "Mars, Inc.",
-    logo: "🍫",
+    logo: "",
     country: "United States",
     revenue: "$50B+",
     employees: "150,000+",
@@ -215,7 +215,7 @@ export const corporations: Corporation[] = [
   {
     slug: "mondelez",
     name: "Mondelēz International",
-    logo: "🍪",
+    logo: "",
     country: "United States",
     revenue: "$36B",
     employees: "91,000+",
@@ -240,7 +240,7 @@ export const corporations: Corporation[] = [
   {
     slug: "kenvue",
     name: "Kenvue (ex-J&J Consumer)",
-    logo: "💊",
+    logo: "",
     country: "United States",
     revenue: "$15B",
     employees: "22,000+",
@@ -264,7 +264,7 @@ export const corporations: Corporation[] = [
   {
     slug: "danone",
     name: "Danone",
-    logo: "🥛",
+    logo: "",
     country: "France",
     revenue: "€28B (~$30B)",
     employees: "96,000+",
@@ -287,7 +287,7 @@ export const corporations: Corporation[] = [
   {
     slug: "associated-british-foods",
     name: "Associated British Foods",
-    logo: "🏪",
+    logo: "",
     country: "United Kingdom",
     revenue: "£20B (~$25B)",
     employees: "133,000+",
@@ -309,7 +309,7 @@ export const corporations: Corporation[] = [
   {
     slug: "reckitt",
     name: "Reckitt Benckiser",
-    logo: "🧹",
+    logo: "",
     country: "United Kingdom",
     revenue: "£14B (~$18B)",
     employees: "40,000+",
@@ -333,7 +333,7 @@ export const corporations: Corporation[] = [
   {
     slug: "ekaterra",
     name: "Lipton Teas and Infusions (ex-Ekaterra)",
-    logo: "🫖",
+    logo: "",
     country: "Netherlands / Private Equity",
     revenue: "€2B (~$2.2B)",
     employees: "10,000+",
@@ -357,77 +357,77 @@ export const corporations: Corporation[] = [
 
 export const brands: Brand[] = [
   // ── Nestlé ──
-  { slug: "kitkat", name: "KitKat", category: "Confectionery", parentSlug: "nestle", logo: "🍫", ethicalRating: "D", description: "Chocolate-covered wafer bar. One of the world's best-selling chocolate bars.", alternatives: ["tonys-chocolonely", "divine-chocolate"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"], barcodePrefixes: ["76"] },
-  { slug: "nescafe", name: "Nescafé", category: "Coffee", parentSlug: "nestle", logo: "☕", ethicalRating: "D", description: "World's leading instant coffee brand.", alternatives: ["cafedirect", "equal-exchange-coffee"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"] },
-  { slug: "nespresso", name: "Nespresso", category: "Coffee", parentSlug: "nestle", logo: "☕", ethicalRating: "D", description: "Premium coffee capsule system.", alternatives: ["cafedirect", "equal-exchange-coffee"], supermarkets: ["Nespresso boutiques", "Waitrose"] },
-  { slug: "maggi", name: "Maggi", category: "Food", parentSlug: "nestle", logo: "🍜", ethicalRating: "D", description: "Instant noodles, seasonings, and soups.", alternatives: [], supermarkets: ["Tesco", "ASDA", "Morrisons"] },
-  { slug: "purina", name: "Purina", category: "Pet Food", parentSlug: "nestle", logo: "🐕", ethicalRating: "D", description: "Pet food for cats and dogs.", alternatives: ["lily-kitchen"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "san-pellegrino", name: "S.Pellegrino", category: "Beverages", parentSlug: "nestle", logo: "💧", ethicalRating: "D", description: "Italian sparkling mineral water.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "Waitrose"] },
-  { slug: "lily-kitchen", name: "Lily's Kitchen", category: "Pet Food", parentSlug: "nestle", logo: "🐕", ethicalRating: "B", description: "Natural pet food. B Corp certified BUT acquired by Nestlé in 2020.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "Waitrose", "Pets at Home"] },
+  { slug: "kitkat", name: "KitKat", category: "Confectionery", parentSlug: "nestle", logo: "", ethicalRating: "D", description: "Chocolate-covered wafer bar. One of the world's best-selling chocolate bars.", alternatives: ["tonys-chocolonely", "divine-chocolate"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"], barcodePrefixes: ["76"] },
+  { slug: "nescafe", name: "Nescafé", category: "Coffee", parentSlug: "nestle", logo: "", ethicalRating: "D", description: "World's leading instant coffee brand.", alternatives: ["cafedirect", "equal-exchange-coffee"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"] },
+  { slug: "nespresso", name: "Nespresso", category: "Coffee", parentSlug: "nestle", logo: "", ethicalRating: "D", description: "Premium coffee capsule system.", alternatives: ["cafedirect", "equal-exchange-coffee"], supermarkets: ["Nespresso boutiques", "Waitrose"] },
+  { slug: "maggi", name: "Maggi", category: "Food", parentSlug: "nestle", logo: "", ethicalRating: "D", description: "Instant noodles, seasonings, and soups.", alternatives: [], supermarkets: ["Tesco", "ASDA", "Morrisons"] },
+  { slug: "purina", name: "Purina", category: "Pet Food", parentSlug: "nestle", logo: "", ethicalRating: "D", description: "Pet food for cats and dogs.", alternatives: ["lily-kitchen"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "san-pellegrino", name: "S.Pellegrino", category: "Beverages", parentSlug: "nestle", logo: "", ethicalRating: "D", description: "Italian sparkling mineral water.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "Waitrose"] },
+  { slug: "lily-kitchen", name: "Lily's Kitchen", category: "Pet Food", parentSlug: "nestle", logo: "", ethicalRating: "B", description: "Natural pet food. B Corp certified BUT acquired by Nestlé in 2020.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "Waitrose", "Pets at Home"] },
 
   // ── Unilever ──
-  { slug: "dove", name: "Dove", category: "Personal Care", parentSlug: "unilever", logo: "🧴", ethicalRating: "C", description: "Personal care — beauty bars and body wash.", alternatives: ["faith-in-nature"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Boots"] },
-  { slug: "ben-jerrys", name: "Ben & Jerry's", category: "Ice Cream", parentSlug: "unilever", logo: "🍦", ethicalRating: "B", description: "Premium ice cream. Known for social activism and Fairtrade ingredients.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Waitrose", "Ocado"] },
-  { slug: "hellmanns", name: "Hellmann's", category: "Condiments", parentSlug: "unilever", logo: "🥚", ethicalRating: "C", description: "World's biggest mayonnaise brand.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "persil", name: "Persil", category: "Household", parentSlug: "unilever", logo: "🧺", ethicalRating: "C", description: "Laundry detergent (Unilever in UK).", alternatives: ["ecover", "method"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "lynx", name: "Lynx (Axe)", category: "Personal Care", parentSlug: "unilever", logo: "🧴", ethicalRating: "C", description: "Male grooming brand.", alternatives: ["faith-in-nature"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Boots"] },
-  { slug: "magnum", name: "Magnum", category: "Ice Cream", parentSlug: "unilever", logo: "🍦", ethicalRating: "C", description: "Premium ice cream bar.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "dove", name: "Dove", category: "Personal Care", parentSlug: "unilever", logo: "", ethicalRating: "C", description: "Personal care — beauty bars and body wash.", alternatives: ["faith-in-nature"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Boots"] },
+  { slug: "ben-jerrys", name: "Ben & Jerry's", category: "Ice Cream", parentSlug: "unilever", logo: "", ethicalRating: "B", description: "Premium ice cream. Known for social activism and Fairtrade ingredients.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Waitrose", "Ocado"] },
+  { slug: "hellmanns", name: "Hellmann's", category: "Condiments", parentSlug: "unilever", logo: "", ethicalRating: "C", description: "World's biggest mayonnaise brand.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "persil", name: "Persil", category: "Household", parentSlug: "unilever", logo: "", ethicalRating: "C", description: "Laundry detergent (Unilever in UK).", alternatives: ["ecover", "method"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "lynx", name: "Lynx (Axe)", category: "Personal Care", parentSlug: "unilever", logo: "", ethicalRating: "C", description: "Male grooming brand.", alternatives: ["faith-in-nature"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Boots"] },
+  { slug: "magnum", name: "Magnum", category: "Ice Cream", parentSlug: "unilever", logo: "", ethicalRating: "C", description: "Premium ice cream bar.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
 
   // ── Ekaterra (ex-Unilever tea) ──
-  { slug: "pg-tips", name: "PG Tips", category: "Tea", parentSlug: "ekaterra", logo: "🫖", ethicalRating: "C", description: "UK's most popular tea. Sold by Unilever to CVC Capital Partners (Ekaterra) in 2022.", alternatives: ["clipper-tea", "teapigs"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"] },
+  { slug: "pg-tips", name: "PG Tips", category: "Tea", parentSlug: "ekaterra", logo: "", ethicalRating: "C", description: "UK's most popular tea. Sold by Unilever to CVC Capital Partners (Ekaterra) in 2022.", alternatives: ["clipper-tea", "teapigs"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"] },
 
   // ── Procter & Gamble ──
-  { slug: "gillette", name: "Gillette", category: "Personal Care", parentSlug: "pg", logo: "🪒", ethicalRating: "C", description: "Razor and personal grooming.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Boots"] },
-  { slug: "pampers", name: "Pampers", category: "Baby Care", parentSlug: "pg", logo: "👶", ethicalRating: "C", description: "World's largest disposable nappy brand.", alternatives: ["kit-and-kin"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Boots"] },
-  { slug: "ariel", name: "Ariel", category: "Household", parentSlug: "pg", logo: "🧺", ethicalRating: "C", description: "Laundry detergent.", alternatives: ["ecover", "method"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "oral-b", name: "Oral-B", category: "Oral Care", parentSlug: "pg", logo: "🪥", ethicalRating: "C", description: "Toothbrush and oral care.", alternatives: ["georganics"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Boots"] },
-  { slug: "fairy", name: "Fairy", category: "Household", parentSlug: "pg", logo: "🧴", ethicalRating: "C", description: "Washing-up liquid and dishwasher products.", alternatives: ["ecover", "method"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "gillette", name: "Gillette", category: "Personal Care", parentSlug: "pg", logo: "", ethicalRating: "C", description: "Razor and personal grooming.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Boots"] },
+  { slug: "pampers", name: "Pampers", category: "Baby Care", parentSlug: "pg", logo: "", ethicalRating: "C", description: "World's largest disposable nappy brand.", alternatives: ["kit-and-kin"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Boots"] },
+  { slug: "ariel", name: "Ariel", category: "Household", parentSlug: "pg", logo: "", ethicalRating: "C", description: "Laundry detergent.", alternatives: ["ecover", "method"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "oral-b", name: "Oral-B", category: "Oral Care", parentSlug: "pg", logo: "", ethicalRating: "C", description: "Toothbrush and oral care.", alternatives: ["georganics"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Boots"] },
+  { slug: "fairy", name: "Fairy", category: "Household", parentSlug: "pg", logo: "", ethicalRating: "C", description: "Washing-up liquid and dishwasher products.", alternatives: ["ecover", "method"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
 
   // ── Coca-Cola ──
-  { slug: "coca-cola-classic", name: "Coca-Cola", category: "Beverages", parentSlug: "coca-cola", logo: "🥤", ethicalRating: "D", description: "World's most recognised soft drink.", alternatives: ["karma-cola"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"], barcodePrefixes: ["5449"] },
-  { slug: "fanta", name: "Fanta", category: "Beverages", parentSlug: "coca-cola", logo: "🍊", ethicalRating: "D", description: "Fruit-flavoured carbonated drink.", alternatives: ["karma-cola"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "sprite", name: "Sprite", category: "Beverages", parentSlug: "coca-cola", logo: "🍋", ethicalRating: "D", description: "Lemon-lime soft drink.", alternatives: ["karma-cola"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "innocent", name: "Innocent Drinks", category: "Beverages", parentSlug: "coca-cola", logo: "🥤", ethicalRating: "C", description: "Smoothie brand. 100% owned by Coca-Cola since 2013.", alternatives: ["cawston-press"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Waitrose"] },
-  { slug: "costa-coffee", name: "Costa Coffee", category: "Coffee", parentSlug: "coca-cola", logo: "☕", ethicalRating: "C", description: "UK's largest coffee chain, acquired by Coca-Cola in 2019.", alternatives: ["cafedirect"], supermarkets: ["Tesco", "Sainsbury's", "Costa stores"] },
+  { slug: "coca-cola-classic", name: "Coca-Cola", category: "Beverages", parentSlug: "coca-cola", logo: "", ethicalRating: "D", description: "World's most recognised soft drink.", alternatives: ["karma-cola"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"], barcodePrefixes: ["5449"] },
+  { slug: "fanta", name: "Fanta", category: "Beverages", parentSlug: "coca-cola", logo: "", ethicalRating: "D", description: "Fruit-flavoured carbonated drink.", alternatives: ["karma-cola"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "sprite", name: "Sprite", category: "Beverages", parentSlug: "coca-cola", logo: "", ethicalRating: "D", description: "Lemon-lime soft drink.", alternatives: ["karma-cola"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "innocent", name: "Innocent Drinks", category: "Beverages", parentSlug: "coca-cola", logo: "", ethicalRating: "C", description: "Smoothie brand. 100% owned by Coca-Cola since 2013.", alternatives: ["cawston-press"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Waitrose"] },
+  { slug: "costa-coffee", name: "Costa Coffee", category: "Coffee", parentSlug: "coca-cola", logo: "", ethicalRating: "C", description: "UK's largest coffee chain, acquired by Coca-Cola in 2019.", alternatives: ["cafedirect"], supermarkets: ["Tesco", "Sainsbury's", "Costa stores"] },
 
   // ── PepsiCo ──
-  { slug: "pepsi", name: "Pepsi", category: "Beverages", parentSlug: "pepsico", logo: "🥤", ethicalRating: "C", description: "Carbonated soft drink.", alternatives: ["karma-cola"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "walkers", name: "Walkers", category: "Snacks", parentSlug: "pepsico", logo: "🥔", ethicalRating: "C", description: "UK's most popular crisps (Lay's internationally).", alternatives: ["tyrrells", "pipers"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"] },
-  { slug: "doritos", name: "Doritos", category: "Snacks", parentSlug: "pepsico", logo: "🌮", ethicalRating: "C", description: "Flavoured tortilla chips.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "quaker", name: "Quaker Oats", category: "Cereal", parentSlug: "pepsico", logo: "🥣", ethicalRating: "C", description: "Oat-based products and cereals.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "pepsi", name: "Pepsi", category: "Beverages", parentSlug: "pepsico", logo: "", ethicalRating: "C", description: "Carbonated soft drink.", alternatives: ["karma-cola"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "walkers", name: "Walkers", category: "Snacks", parentSlug: "pepsico", logo: "", ethicalRating: "C", description: "UK's most popular crisps (Lay's internationally).", alternatives: ["tyrrells", "pipers"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"] },
+  { slug: "doritos", name: "Doritos", category: "Snacks", parentSlug: "pepsico", logo: "", ethicalRating: "C", description: "Flavoured tortilla chips.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "quaker", name: "Quaker Oats", category: "Cereal", parentSlug: "pepsico", logo: "", ethicalRating: "C", description: "Oat-based products and cereals.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
 
   // ── Mars (includes Kellanova brands post-2024 acquisition) ──
-  { slug: "mars-bar", name: "Mars Bar", category: "Confectionery", parentSlug: "mars", logo: "🍫", ethicalRating: "C", description: "Iconic chocolate bar.", alternatives: ["tonys-chocolonely", "divine-chocolate"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"] },
-  { slug: "snickers", name: "Snickers", category: "Confectionery", parentSlug: "mars", logo: "🍫", ethicalRating: "C", description: "Chocolate bar with peanuts, caramel, and nougat.", alternatives: ["tonys-chocolonely"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "mms", name: "M&M's", category: "Confectionery", parentSlug: "mars", logo: "🍬", ethicalRating: "C", description: "Button-shaped chocolate candies.", alternatives: ["divine-chocolate"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "whiskas", name: "Whiskas", category: "Pet Food", parentSlug: "mars", logo: "🐱", ethicalRating: "C", description: "Cat food. Part of Mars Petcare.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "uncle-bens", name: "Ben's Original", category: "Food", parentSlug: "mars", logo: "🍚", ethicalRating: "C", description: "Rice and sauces (rebranded from Uncle Ben's 2020).", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "pringles", name: "Pringles", category: "Snacks", parentSlug: "mars", logo: "🥔", ethicalRating: "C", description: "Stackable crisps. Now Mars-owned via Kellanova acquisition (2024).", alternatives: ["tyrrells", "pipers"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "mars-bar", name: "Mars Bar", category: "Confectionery", parentSlug: "mars", logo: "", ethicalRating: "C", description: "Iconic chocolate bar.", alternatives: ["tonys-chocolonely", "divine-chocolate"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"] },
+  { slug: "snickers", name: "Snickers", category: "Confectionery", parentSlug: "mars", logo: "", ethicalRating: "C", description: "Chocolate bar with peanuts, caramel, and nougat.", alternatives: ["tonys-chocolonely"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "mms", name: "M&M's", category: "Confectionery", parentSlug: "mars", logo: "", ethicalRating: "C", description: "Button-shaped chocolate candies.", alternatives: ["divine-chocolate"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "whiskas", name: "Whiskas", category: "Pet Food", parentSlug: "mars", logo: "", ethicalRating: "C", description: "Cat food. Part of Mars Petcare.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "uncle-bens", name: "Ben's Original", category: "Food", parentSlug: "mars", logo: "", ethicalRating: "C", description: "Rice and sauces (rebranded from Uncle Ben's 2020).", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "pringles", name: "Pringles", category: "Snacks", parentSlug: "mars", logo: "", ethicalRating: "C", description: "Stackable crisps. Now Mars-owned via Kellanova acquisition (2024).", alternatives: ["tyrrells", "pipers"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
 
   // ── Mondelēz ──
-  { slug: "cadbury", name: "Cadbury", category: "Confectionery", parentSlug: "mondelez", logo: "🍫", ethicalRating: "C", description: "Iconic British chocolate. Controversially taken over by Kraft/Mondelēz in hostile 2010 bid.", alternatives: ["tonys-chocolonely", "divine-chocolate"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"] },
-  { slug: "oreo", name: "Oreo", category: "Biscuits", parentSlug: "mondelez", logo: "🍪", ethicalRating: "C", description: "Chocolate sandwich cookie.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "philadelphia", name: "Philadelphia", category: "Dairy", parentSlug: "mondelez", logo: "🧀", ethicalRating: "C", description: "Cream cheese brand.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "cadbury", name: "Cadbury", category: "Confectionery", parentSlug: "mondelez", logo: "", ethicalRating: "C", description: "Iconic British chocolate. Controversially taken over by Kraft/Mondelēz in hostile 2010 bid.", alternatives: ["tonys-chocolonely", "divine-chocolate"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons", "Waitrose"] },
+  { slug: "oreo", name: "Oreo", category: "Biscuits", parentSlug: "mondelez", logo: "", ethicalRating: "C", description: "Chocolate sandwich cookie.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "philadelphia", name: "Philadelphia", category: "Dairy", parentSlug: "mondelez", logo: "", ethicalRating: "C", description: "Cream cheese brand.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
 
   // ── Kenvue (ex-J&J) ──
-  { slug: "johnsons-baby", name: "Johnson's Baby", category: "Baby Care", parentSlug: "kenvue", logo: "👶", ethicalRating: "D", description: "Baby care products. Now Kenvue after J&J split (2023).", alternatives: ["kit-and-kin"], supermarkets: ["Tesco", "Sainsbury's", "Boots"] },
-  { slug: "listerine", name: "Listerine", category: "Oral Care", parentSlug: "kenvue", logo: "🪥", ethicalRating: "D", description: "Mouthwash. Now Kenvue after J&J split (2023).", alternatives: ["georganics"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Boots"] },
+  { slug: "johnsons-baby", name: "Johnson's Baby", category: "Baby Care", parentSlug: "kenvue", logo: "", ethicalRating: "D", description: "Baby care products. Now Kenvue after J&J split (2023).", alternatives: ["kit-and-kin"], supermarkets: ["Tesco", "Sainsbury's", "Boots"] },
+  { slug: "listerine", name: "Listerine", category: "Oral Care", parentSlug: "kenvue", logo: "", ethicalRating: "D", description: "Mouthwash. Now Kenvue after J&J split (2023).", alternatives: ["georganics"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Boots"] },
 
   // ── Danone ──
-  { slug: "evian", name: "Evian", category: "Beverages", parentSlug: "danone", logo: "💧", ethicalRating: "B", description: "Mineral water from the French Alps.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "Waitrose"] },
-  { slug: "alpro", name: "Alpro", category: "Dairy Alternatives", parentSlug: "danone", logo: "🥛", ethicalRating: "B", description: "Plant-based dairy alternatives.", alternatives: ["oatly", "minor-figures"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Waitrose", "Ocado"] },
-  { slug: "activia", name: "Activia", category: "Dairy", parentSlug: "danone", logo: "🥛", ethicalRating: "B", description: "Probiotic yoghurt.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "evian", name: "Evian", category: "Beverages", parentSlug: "danone", logo: "", ethicalRating: "B", description: "Mineral water from the French Alps.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "Waitrose"] },
+  { slug: "alpro", name: "Alpro", category: "Dairy Alternatives", parentSlug: "danone", logo: "", ethicalRating: "B", description: "Plant-based dairy alternatives.", alternatives: ["oatly", "minor-figures"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Waitrose", "Ocado"] },
+  { slug: "activia", name: "Activia", category: "Dairy", parentSlug: "danone", logo: "", ethicalRating: "B", description: "Probiotic yoghurt.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
 
   // ── Associated British Foods ──
-  { slug: "primark", name: "Primark", category: "Clothing & Retail", parentSlug: "associated-british-foods", logo: "👕", ethicalRating: "D", description: "Fast fashion retailer. Weston family controls parent ABF (54.5%).", alternatives: [], supermarkets: ["Primark stores"] },
-  { slug: "twinings", name: "Twinings", category: "Tea", parentSlug: "associated-british-foods", logo: "🫖", ethicalRating: "C", description: "Premium tea brand (est. 1706). Weston family-controlled.", alternatives: ["clipper-tea", "teapigs"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Waitrose"] },
-  { slug: "kingsmill", name: "Kingsmill", category: "Bakery", parentSlug: "associated-british-foods", logo: "🍞", ethicalRating: "C", description: "Major UK bread brand.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "primark", name: "Primark", category: "Clothing & Retail", parentSlug: "associated-british-foods", logo: "", ethicalRating: "D", description: "Fast fashion retailer. Weston family controls parent ABF (54.5%).", alternatives: [], supermarkets: ["Primark stores"] },
+  { slug: "twinings", name: "Twinings", category: "Tea", parentSlug: "associated-british-foods", logo: "", ethicalRating: "C", description: "Premium tea brand (est. 1706). Weston family-controlled.", alternatives: ["clipper-tea", "teapigs"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Waitrose"] },
+  { slug: "kingsmill", name: "Kingsmill", category: "Bakery", parentSlug: "associated-british-foods", logo: "", ethicalRating: "C", description: "Major UK bread brand.", alternatives: [], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
 
   // ── Reckitt ──
-  { slug: "dettol", name: "Dettol", category: "Household", parentSlug: "reckitt", logo: "🧹", ethicalRating: "C", description: "Antiseptic and cleaning brand.", alternatives: ["method", "ecover"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
-  { slug: "durex", name: "Durex", category: "Health", parentSlug: "reckitt", logo: "💊", ethicalRating: "C", description: "Sexual health and wellbeing.", alternatives: [], supermarkets: ["Tesco", "Boots", "Superdrug"] },
-  { slug: "nurofen", name: "Nurofen", category: "Health", parentSlug: "reckitt", logo: "💊", ethicalRating: "C", description: "Ibuprofen pain relief. Fined for misleading packaging.", alternatives: [], supermarkets: ["Tesco", "Boots", "Superdrug"] },
-  { slug: "vanish", name: "Vanish", category: "Household", parentSlug: "reckitt", logo: "🧺", ethicalRating: "C", description: "Stain removal products.", alternatives: ["ecover"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "dettol", name: "Dettol", category: "Household", parentSlug: "reckitt", logo: "", ethicalRating: "C", description: "Antiseptic and cleaning brand.", alternatives: ["method", "ecover"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
+  { slug: "durex", name: "Durex", category: "Health", parentSlug: "reckitt", logo: "", ethicalRating: "C", description: "Sexual health and wellbeing.", alternatives: [], supermarkets: ["Tesco", "Boots", "Superdrug"] },
+  { slug: "nurofen", name: "Nurofen", category: "Health", parentSlug: "reckitt", logo: "", ethicalRating: "C", description: "Ibuprofen pain relief. Fined for misleading packaging.", alternatives: [], supermarkets: ["Tesco", "Boots", "Superdrug"] },
+  { slug: "vanish", name: "Vanish", category: "Household", parentSlug: "reckitt", logo: "", ethicalRating: "C", description: "Stain removal products.", alternatives: ["ecover"], supermarkets: ["Tesco", "Sainsbury's", "ASDA", "Morrisons"] },
 ];
 
 // ════════════════════════════════════════════════════
@@ -439,7 +439,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "tonys-chocolonely",
     name: "Tony's Chocolonely",
     category: "Confectionery",
-    logo: "🍫",
+    logo: "",
     ethicalRating: "A",
     description: "Dutch chocolate on a mission to make all chocolate 100% slave-free.",
     certifications: ["Fairtrade", "B Corp"],
@@ -451,7 +451,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "divine-chocolate",
     name: "Divine Chocolate",
     category: "Confectionery",
-    logo: "🍫",
+    logo: "",
     ethicalRating: "A",
     description: "Fairtrade chocolate co-owned by cocoa farmers in Ghana.",
     certifications: ["Fairtrade", "B Corp"],
@@ -463,7 +463,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "cafedirect",
     name: "Cafédirect",
     category: "Coffee",
-    logo: "☕",
+    logo: "",
     ethicalRating: "A",
     description: "UK's largest Fairtrade hot drinks brand. Farmer-owned social enterprise.",
     certifications: ["Fairtrade", "Social Enterprise"],
@@ -475,7 +475,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "equal-exchange-coffee",
     name: "Equal Exchange",
     category: "Coffee",
-    logo: "☕",
+    logo: "",
     ethicalRating: "A",
     description: "Worker-owned co-operative. Fairtrade coffee, tea, and chocolate.",
     certifications: ["Fairtrade", "Worker Co-op", "Organic"],
@@ -487,7 +487,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "ecover",
     name: "Ecover",
     category: "Household",
-    logo: "🧴",
+    logo: "",
     ethicalRating: "A",
     description: "Plant-based ecological cleaning products since 1980.",
     certifications: ["B Corp", "Vegan", "Cruelty Free"],
@@ -499,7 +499,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "method",
     name: "Method",
     category: "Household",
-    logo: "🧴",
+    logo: "",
     ethicalRating: "A",
     description: "Design-led eco-friendly cleaning products.",
     certifications: ["B Corp", "Cradle to Cradle", "Cruelty Free"],
@@ -511,7 +511,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "faith-in-nature",
     name: "Faith in Nature",
     category: "Personal Care",
-    logo: "🌿",
+    logo: "",
     ethicalRating: "A",
     description: "Natural, vegan personal care products.",
     certifications: ["B Corp", "Vegan Society", "Cruelty Free", "Nature on the Board"],
@@ -523,7 +523,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "clipper-tea",
     name: "Clipper Tea",
     category: "Tea",
-    logo: "🫖",
+    logo: "",
     ethicalRating: "A",
     description: "Fairtrade and organic tea. Unbleached, plastic-free tea bags.",
     certifications: ["Fairtrade", "Organic", "Non-GMO"],
@@ -535,7 +535,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "teapigs",
     name: "Teapigs",
     category: "Tea",
-    logo: "🫖",
+    logo: "",
     ethicalRating: "A",
     description: "Whole leaf tea in biodegradable 'tea temples'.",
     certifications: ["B Corp", "Plastic Free"],
@@ -547,7 +547,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "karma-cola",
     name: "Karma Cola",
     category: "Beverages",
-    logo: "🥤",
+    logo: "",
     ethicalRating: "A",
     description: "Fairtrade cola made with real cola nut from Sierra Leone.",
     certifications: ["Fairtrade", "Organic"],
@@ -559,7 +559,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "oatly",
     name: "Oatly",
     category: "Dairy Alternatives",
-    logo: "🥛",
+    logo: "",
     ethicalRating: "B",
     description: "Swedish oat milk. B rating due to Blackstone Group investment.",
     certifications: ["Vegan"],
@@ -571,7 +571,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "kit-and-kin",
     name: "Kit & Kin",
     category: "Baby Care",
-    logo: "👶",
+    logo: "",
     ethicalRating: "A",
     description: "Eco-friendly nappies and baby products.",
     certifications: ["FSC", "Vegan"],
@@ -583,7 +583,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "georganics",
     name: "Georganics",
     category: "Oral Care",
-    logo: "🪥",
+    logo: "",
     ethicalRating: "A",
     description: "Natural, zero-waste oral care from the UK.",
     certifications: ["B Corp", "Organic", "Cruelty Free", "Plastic Free"],
@@ -595,7 +595,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "cawston-press",
     name: "Cawston Press",
     category: "Beverages",
-    logo: "🍎",
+    logo: "",
     ethicalRating: "A",
     description: "Pressed fruit drinks — no concentrates, no sweeteners, no added sugar.",
     certifications: [],
@@ -607,7 +607,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "minor-figures",
     name: "Minor Figures",
     category: "Dairy Alternatives",
-    logo: "🥛",
+    logo: "",
     ethicalRating: "A",
     description: "Oat milk designed for coffee. B Corp and carbon neutral.",
     certifications: ["B Corp", "Carbon Neutral"],
@@ -619,7 +619,7 @@ export const ethicalAlternatives: EthicalAlternative[] = [
     slug: "lily-kitchen-alt",
     name: "Lily's Kitchen",
     category: "Pet Food",
-    logo: "🐕",
+    logo: "",
     ethicalRating: "B",
     description: "Natural pet food, B Corp. Note: acquired by Nestlé in 2020.",
     certifications: ["B Corp"],
@@ -719,11 +719,11 @@ export function searchAll(query: string): {
 
 export function getRatingColor(rating: EthicalRating): string {
   const map: Record<EthicalRating, string> = {
-    A: "text-emerald-600 bg-emerald-50 border-emerald-200 dark:text-emerald-400 dark:bg-emerald-950 dark:border-emerald-800",
-    B: "text-green-600 bg-green-50 border-green-200 dark:text-green-400 dark:bg-green-950 dark:border-green-800",
-    C: "text-amber-600 bg-amber-50 border-amber-200 dark:text-amber-400 dark:bg-amber-950 dark:border-amber-800",
-    D: "text-orange-600 bg-orange-50 border-orange-200 dark:text-orange-400 dark:bg-orange-950 dark:border-orange-800",
-    E: "text-red-600 bg-red-50 border-red-200 dark:text-red-400 dark:bg-red-950 dark:border-red-800",
+    A: "text-emerald-600 bg-emerald-50 border-emerald-200",
+    B: "text-green-600 bg-green-50 border-green-200",
+    C: "text-amber-600 bg-amber-50 border-amber-200",
+    D: "text-orange-600 bg-orange-50 border-orange-200",
+    E: "text-red-600 bg-red-50 border-red-200",
   };
   return map[rating];
 }
@@ -740,9 +740,9 @@ export function getRatingLabel(rating: EthicalRating): string {
 
 export function getSeverityColor(severity: "low" | "medium" | "high"): string {
   const map = {
-    low: "text-yellow-700 bg-yellow-50 dark:text-yellow-400 dark:bg-yellow-950",
-    medium: "text-orange-700 bg-orange-50 dark:text-orange-400 dark:bg-orange-950",
-    high: "text-red-700 bg-red-50 dark:text-red-400 dark:bg-red-950",
+    low: "text-yellow-700 bg-yellow-50",
+    medium: "text-orange-700 bg-orange-50",
+    high: "text-red-700 bg-red-50",
   };
   return map[severity];
 }

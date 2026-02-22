@@ -24,7 +24,7 @@ export default function BrandPage() {
     return (
       <div className="mx-auto max-w-2xl px-4 py-20 text-center">
         <p className="text-4xl">?</p>
-        <h2 className="mt-4 text-lg font-black text-stone-900 dark:text-stone-100">Brand not found</h2>
+        <h2 className="mt-4 text-lg font-black text-stone-900">Brand not found</h2>
         <Link href="/" className="mt-4 inline-block text-sm font-bold text-red-600">
           &larr; Back to home
         </Link>
@@ -42,7 +42,7 @@ export default function BrandPage() {
     <div className="mx-auto max-w-2xl px-4 pb-24">
       {/* Back */}
       <div className="py-4">
-        <Link href="/" className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-stone-500 hover:text-red-600 dark:text-stone-400">
+        <Link href="/" className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-stone-500 hover:text-red-600">
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
@@ -54,11 +54,10 @@ export default function BrandPage() {
       <div className="flex items-start gap-4 pb-6">
         <RatingCircle rating={brand.ethicalRating} size="lg" />
         <div>
-          <span className="text-3xl">{brand.logo}</span>
-          <h2 className="mt-1 text-2xl font-black tracking-tight text-stone-900 dark:text-stone-100">
+          <h2 className="text-2xl font-black tracking-tight text-stone-900">
             {brand.name}
           </h2>
-          <p className="text-sm text-stone-500 dark:text-stone-400">{brand.category}</p>
+          <p className="text-sm text-stone-500">{brand.category}</p>
           <div className={`mt-2 inline-block rounded border px-2 py-0.5 text-xs font-black ${getRatingColor(brand.ethicalRating)}`}>
             {brand.ethicalRating} — {getRatingLabel(brand.ethicalRating)}
           </div>
@@ -66,26 +65,23 @@ export default function BrandPage() {
       </div>
 
       {/* Rating bar */}
-      <div className="rounded-xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900">
+      <div className="rounded-xl border border-stone-200 bg-white p-4">
         <RatingBar rating={brand.ethicalRating} />
-        <p className="mt-3 text-xs text-stone-500 dark:text-stone-400">{brand.description}</p>
+        <p className="mt-3 text-xs text-stone-500">{brand.description}</p>
       </div>
 
       {/* ═══ OWNERSHIP CHAIN ═══ */}
       {parent && (
-        <div className="mt-4 rounded-xl border-2 border-red-200 bg-red-50/50 p-4 dark:border-red-900 dark:bg-red-950/20">
-          <p className="text-xs font-black uppercase tracking-wider text-red-600 dark:text-red-400">
+        <div className="mt-4 rounded-xl border-2 border-red-200 bg-red-50/50 p-4">
+          <p className="text-xs font-black uppercase tracking-wider text-red-600">
             Owned by
           </p>
           <Link
             href={`/corporation/${parent.slug}`}
-            className="group mt-2 flex items-center gap-3 rounded-lg bg-white p-3 transition-all hover:shadow-sm dark:bg-stone-900"
+            className="group mt-2 flex items-center gap-3 rounded-lg bg-white p-3 transition-all hover:shadow-sm"
           >
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-stone-100 text-xl dark:bg-stone-800">
-              {parent.logo}
-            </div>
             <div className="flex-1">
-              <p className="text-sm font-black text-stone-900 dark:text-stone-100">{parent.name}</p>
+              <p className="text-sm font-black text-stone-900">{parent.name}</p>
               <p className="text-xs text-stone-500">{parent.country} &middot; {parent.revenue}</p>
             </div>
             <div className={`rounded border px-1.5 py-0.5 text-[10px] font-black ${getRatingColor(parent.ethicalRating)}`}>
@@ -95,7 +91,7 @@ export default function BrandPage() {
 
           {/* Human owners */}
           <div className="mt-3">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-red-500 dark:text-red-500">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-red-500">
               The humans who profit
             </p>
             <div className="mt-2 space-y-1">
@@ -103,13 +99,13 @@ export default function BrandPage() {
                 .filter((o) => o.ownershipPercent)
                 .slice(0, 3)
                 .map((owner, i) => (
-                  <div key={i} className="flex items-center justify-between rounded bg-white px-3 py-1.5 dark:bg-stone-900">
+                  <div key={i} className="flex items-center justify-between rounded bg-white px-3 py-1.5">
                     <div>
-                      <p className="text-xs font-bold text-stone-800 dark:text-stone-200">{owner.name}</p>
+                      <p className="text-xs font-bold text-stone-800">{owner.name}</p>
                       <p className="text-[10px] text-stone-400">{owner.role}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-xs font-black text-red-600 dark:text-red-400">{owner.ownershipPercent}%</p>
+                      <p className="text-xs font-black text-red-600">{owner.ownershipPercent}%</p>
                       {owner.estimatedValue && (
                         <p className="text-[10px] text-stone-400">{owner.estimatedValue}</p>
                       )}
@@ -123,22 +119,22 @@ export default function BrandPage() {
 
       {/* Corporate Issues */}
       {parent && parent.issues.length > 0 && (
-        <div className="mt-4 rounded-xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900">
-          <p className="text-xs font-black uppercase tracking-wider text-stone-400 dark:text-stone-500">
+        <div className="mt-4 rounded-xl border border-stone-200 bg-white p-4">
+          <p className="text-xs font-black uppercase tracking-wider text-stone-400">
             Known issues — {parent.name}
           </p>
           <div className="mt-3 space-y-2">
             {parent.issues.map((issue, i) => (
-              <div key={i} className="rounded-lg bg-stone-50 p-3 dark:bg-stone-800">
+              <div key={i} className="rounded-lg bg-stone-50 p-3">
                 <div className="flex items-center gap-2">
                   <span className={`rounded px-1.5 py-0.5 text-[9px] font-black uppercase ${getSeverityColor(issue.severity)}`}>
                     {issue.severity}
                   </span>
-                  <span className="text-xs font-bold text-stone-700 dark:text-stone-300">{issue.category}</span>
+                  <span className="text-xs font-bold text-stone-700">{issue.category}</span>
                 </div>
-                <p className="mt-1 text-[11px] text-stone-500 dark:text-stone-400">{issue.description}</p>
+                <p className="mt-1 text-[11px] text-stone-500">{issue.description}</p>
                 {issue.source && (
-                  <p className="mt-0.5 text-[9px] italic text-stone-400 dark:text-stone-600">
+                  <p className="mt-0.5 text-[9px] italic text-stone-400">
                     Source: {issue.source}
                   </p>
                 )}
@@ -151,7 +147,7 @@ export default function BrandPage() {
       {/* ═══ THE SWITCH ═══ */}
       {alternatives.length > 0 && (
         <div className="mt-4">
-          <p className="mb-2 text-xs font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-500">
+          <p className="mb-2 text-xs font-black uppercase tracking-wider text-emerald-600">
             Make the switch
           </p>
           <div className="space-y-2">
@@ -164,13 +160,13 @@ export default function BrandPage() {
 
       {/* Available at */}
       {brand.supermarkets.length > 0 && (
-        <div className="mt-4 rounded-xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900">
-          <p className="text-xs font-black uppercase tracking-wider text-stone-400 dark:text-stone-500">
+        <div className="mt-4 rounded-xl border border-stone-200 bg-white p-4">
+          <p className="text-xs font-black uppercase tracking-wider text-stone-400">
             Available at
           </p>
           <div className="mt-2 flex flex-wrap gap-1.5">
             {brand.supermarkets.map((store) => (
-              <span key={store} className="rounded bg-stone-100 px-2 py-1 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-400">
+              <span key={store} className="rounded bg-stone-100 px-2 py-1 text-xs text-stone-600">
                 {store}
               </span>
             ))}
@@ -181,7 +177,7 @@ export default function BrandPage() {
       {/* Sibling brands */}
       {siblingBrands.length > 0 && (
         <div className="mt-6">
-          <p className="mb-2 text-xs font-black uppercase tracking-wider text-stone-400 dark:text-stone-500">
+          <p className="mb-2 text-xs font-black uppercase tracking-wider text-stone-400">
             Also owned by {parent?.name}
           </p>
           <div className="space-y-2">

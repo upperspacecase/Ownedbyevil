@@ -1,21 +1,16 @@
-"use client";
-
 import Link from "next/link";
-import { useTheme } from "./ThemeProvider";
 
 export default function Header() {
-  const { theme, toggleTheme } = useTheme();
-
   return (
-    <header className="sticky top-0 z-50 border-b border-stone-200/60 bg-stone-50/90 backdrop-blur-xl dark:border-stone-800/60 dark:bg-stone-950/90">
+    <header className="sticky top-0 z-50 border-b border-stone-200/60 bg-stone-50/90 backdrop-blur-xl">
       <div className="mx-auto flex max-w-2xl items-center justify-between px-4 py-2.5">
         <Link href="/" className="flex items-center gap-2.5">
           <div className="flex h-8 w-8 items-center justify-center rounded bg-red-600 text-[10px] font-black tracking-tighter text-white">
             OBE
           </div>
           <div>
-            <h1 className="text-sm font-black uppercase tracking-tight text-stone-900 dark:text-stone-100">
-              Owned<span className="text-red-600 dark:text-red-500">By</span>Evil
+            <h1 className="text-sm font-black uppercase tracking-tight text-stone-900">
+              Owned<span className="text-red-600">By</span>Evil
             </h1>
           </div>
         </Link>
@@ -30,13 +25,6 @@ export default function Header() {
             </svg>
             Scan
           </Link>
-          <button
-            onClick={toggleTheme}
-            className="flex h-8 w-8 items-center justify-center rounded-full text-sm transition-colors hover:bg-stone-200 dark:hover:bg-stone-800"
-            aria-label="Toggle dark mode"
-          >
-            {theme === "dark" ? "\u2600\uFE0F" : "\uD83C\uDF19"}
-          </button>
         </div>
       </div>
     </header>
