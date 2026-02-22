@@ -100,10 +100,7 @@ SELECT ?companyLabel ?relType ?related ?relatedLabel ?proportion WHERE {
   }
   UNION {
     ?company wdt:P355 ?related .
-    BIND("subsidiary" AS ?relType)
-  }
-  UNION {
-    ?related wdt:P749 ?company .
+    ?related wdt:P31/wdt:P279* wd:Q4830453 .
     BIND("subsidiary" AS ?relType)
   }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en" . }
