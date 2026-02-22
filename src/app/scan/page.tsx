@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   lookupBarcode,
   getCorporation,
@@ -83,13 +82,17 @@ export default function ScanPage() {
 
       // 2. Try Open Food Facts API
       setScanState("searching");
-      const product = await fetchProductByBarcode(code);
-      if (product && (product.product_name || product.brands)) {
-        setExternalProduct(product);
-        setScannedBrand(null);
-        setScanState("found-external");
-        stopCamera();
-      } else {
+      try {
+        const product = await fetchProductByBarcode(code);
+        if (product && (product.product_name || product.brands)) {
+          setExternalProduct(product);
+          setScannedBrand(null);
+          setScanState("found-external");
+          stopCamera();
+        } else {
+          setScanState("not-found");
+        }
+      } catch {
         setScanState("not-found");
       }
     },
@@ -470,13 +473,11 @@ function ExternalScanResult({
       <div className="reveal-up rounded-xl border-2 border-amber-200 bg-amber-50 p-5">
         <div className="flex items-start gap-4">
           {product.image_url ? (
-            <Image
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
               src={product.image_url}
               alt={displayName}
-              width={64}
-              height={64}
               className="h-16 w-16 rounded-lg object-cover"
-              unoptimized
             />
           ) : (
             <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-amber-100 text-2xl">

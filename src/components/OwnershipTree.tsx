@@ -49,6 +49,7 @@ export default function OwnershipTree({
     initialCached
   );
   const [loading, setLoading] = useState(false);
+  const [fetchError, setFetchError] = useState(false);
 
   useEffect(() => {
     if (!companyName || !cacheKey || initialCached) return;
@@ -56,26 +57,30 @@ export default function OwnershipTree({
     let cancelled = false;
     const wikidataId = corporation?.wikidataId;
 
-    const doFetch = async () => {
-      const tree = wikidataId
-        ? await fetchWikidataOwnership(wikidataId)
-        : await fetchOwnershipByName(companyName);
+    const controller = new AbortController();
 
-      if (!cancelled && tree) {
-        setCache(cacheKey, tree);
-        setWikidataTree(tree);
+    (async () => {
+      try {
+        if (!cancelled) setLoading(true);
+
+        const tree = wikidataId
+          ? await fetchWikidataOwnership(wikidataId)
+          : await fetchOwnershipByName(companyName);
+
+        if (!cancelled && tree) {
+          setCache(cacheKey, tree);
+          setWikidataTree(tree);
+        }
+      } catch {
+        if (!cancelled) setFetchError(true);
+      } finally {
+        if (!cancelled) setLoading(false);
       }
-      if (!cancelled) setLoading(false);
-    };
-
-    // Kick off async fetch; loading state set via callback
-    Promise.resolve().then(() => {
-      if (!cancelled) setLoading(true);
-      doFetch();
-    });
+    })();
 
     return () => {
       cancelled = true;
+      controller.abort();
     };
   }, [companyName, corporation?.wikidataId, cacheKey, initialCached]);
 
@@ -379,6 +384,15 @@ export default function OwnershipTree({
             <div className="h-3 w-3 animate-spin rounded-full border-2 border-red-200 border-t-red-500" />
             <p className="text-[10px] text-stone-400">
               Fetching live ownership data from Wikidata...
+            </p>
+          </div>
+        )}
+
+        {/* ── Error ── */}
+        {fetchError && !wikidataTree && (
+          <div className="mt-2 rounded bg-stone-50 px-3 py-2">
+            <p className="text-[10px] text-stone-400">
+              Could not reach Wikidata. Showing local data only.
             </p>
           </div>
         )}
