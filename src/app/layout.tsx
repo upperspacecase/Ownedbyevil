@@ -4,17 +4,20 @@ import Header from "@/components/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "OwnedByEvil — Ethical Brand Tracker",
+  title: "OwnedByEvil — Who really owns your brands",
   description:
-    "Discover who really owns your favourite brands. Search any product to reveal its corporate parent, ethical track record, and find better alternatives.",
+    "Scan any product barcode to reveal its corporate parent, the humans who profit, their ethical track record, and find alternatives that deserve your money.",
   keywords: [
     "ethical brands",
     "corporate ownership",
+    "who owns what",
     "brand tracker",
+    "barcode scanner",
     "ethical shopping",
-    "who owns",
     "Nestlé",
     "Unilever",
+    "Coca-Cola",
+    "Mars",
     "P&G",
   ],
 };
@@ -24,8 +27,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+    { media: "(prefers-color-scheme: light)", color: "#fafaf9" },
+    { media: "(prefers-color-scheme: dark)", color: "#0c0a09" },
   ],
 };
 
@@ -36,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-slate-50 font-sans antialiased dark:bg-slate-950">
+      <body className="min-h-screen bg-stone-50 font-sans antialiased dark:bg-stone-950">
         <ThemeProvider>
           <Header />
           <main>{children}</main>

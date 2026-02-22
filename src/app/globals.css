@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --accent: #dc2626;
+  --accent-glow: rgba(220, 38, 38, 0.15);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
@@ -15,8 +18,10 @@
 }
 
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --background: #0c0a09;
+  --foreground: #e7e5e4;
+  --accent: #ef4444;
+  --accent-glow: rgba(239, 68, 68, 0.2);
 }
 
 body {
@@ -25,83 +30,72 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Smooth transitions for dark mode */
-* {
-  transition: background-color 0.2s ease, border-color 0.2s ease,
-    color 0.2s ease;
+/* Only transition theme-related properties */
+.theme-transition {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #a8a29e; border-radius: 3px; }
+.dark ::-webkit-scrollbar-thumb { background: #57534e; }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #475569;
-}
-
-/* Ownership chain connector */
-.ownership-chain-line {
-  position: relative;
-}
-
-.ownership-chain-line::before {
-  content: "";
-  position: absolute;
-  left: 1.25rem;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, #e2e8f0, #94a3b8);
-}
-
-.dark .ownership-chain-line::before {
-  background: linear-gradient(to bottom, #334155, #64748b);
-}
-
-/* Rating circle animation */
+/* Rating pop animation */
 @keyframes score-pop {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.rating-circle { animation: score-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+/* Reveal animation */
+@keyframes reveal-up {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.reveal-up { animation: reveal-up 0.6s ease-out forwards; }
+.reveal-delay-1 { animation-delay: 0.1s; opacity: 0; }
+.reveal-delay-2 { animation-delay: 0.2s; opacity: 0; }
+.reveal-delay-3 { animation-delay: 0.3s; opacity: 0; }
+
+/* Dramatic underline */
+.dramatic-underline {
+  text-decoration: none;
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 100% 3px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
 }
 
-.rating-circle {
-  animation: score-pop 0.4s ease-out;
-}
-
-/* Search focus ring */
+/* Search */
 .search-input:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 0 2px var(--accent);
 }
 
-.dark .search-input:focus {
-  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.3);
+/* Hide scrollbar */
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* Barcode scanner overlay */
+.scanner-region {
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.7);
+  border: 2px solid var(--accent);
 }
 
-/* Hide scrollbar for category filter */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Glow effect */
+.glow-red {
+  box-shadow: 0 0 40px var(--accent-glow), 0 0 80px var(--accent-glow);
 }
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+
+/* Stamp effect for rating */
+.stamp {
+  display: inline-block;
+  transform: rotate(-3deg);
+  border: 3px solid currentColor;
+  padding: 2px 10px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }

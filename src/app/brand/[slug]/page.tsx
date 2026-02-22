@@ -6,13 +6,14 @@ import {
   getBrand,
   getCorporation,
   getBrandsByCorporation,
+  getAlternativesForBrand,
   getRatingColor,
   getRatingLabel,
   getSeverityColor,
-  brands,
 } from "@/data/brands";
 import { RatingCircle, RatingBar } from "@/components/RatingBadge";
 import BrandCard from "@/components/BrandCard";
+import AlternativeCard from "@/components/AlternativeCard";
 
 export default function BrandPage() {
   const params = useParams();
@@ -21,16 +22,11 @@ export default function BrandPage() {
 
   if (!brand) {
     return (
-      <div className="mx-auto max-w-lg px-4 py-20 text-center">
-        <p className="text-4xl">😕</p>
-        <h2 className="mt-4 text-lg font-semibold text-slate-900 dark:text-white">
-          Brand not found
-        </h2>
-        <Link
-          href="/"
-          className="mt-4 inline-block text-sm font-medium text-blue-600 dark:text-blue-400"
-        >
-          ← Back to search
+      <div className="mx-auto max-w-2xl px-4 py-20 text-center">
+        <p className="text-4xl">?</p>
+        <h2 className="mt-4 text-lg font-black text-stone-900 dark:text-stone-100">Brand not found</h2>
+        <Link href="/" className="mt-4 inline-block text-sm font-bold text-red-600">
+          &larr; Back to home
         </Link>
       </div>
     );
@@ -38,29 +34,16 @@ export default function BrandPage() {
 
   const parent = brand.parentSlug ? getCorporation(brand.parentSlug) : null;
   const siblingBrands = parent
-    ? getBrandsByCorporation(parent.slug)
-        .filter((b) => b.slug !== brand.slug)
-        .slice(0, 5)
+    ? getBrandsByCorporation(parent.slug).filter((b) => b.slug !== brand.slug).slice(0, 5)
     : [];
-  const alternatives = brand.alternatives
-    .map((slug) => brands.find((b) => b.slug === slug))
-    .filter(Boolean);
+  const alternatives = getAlternativesForBrand(brand.slug);
 
   return (
-    <div className="mx-auto max-w-lg px-4 pb-24">
-      {/* Back button */}
-      <div className="py-3">
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1 text-sm text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-300"
-        >
-          <svg
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2}
-          >
+    <div className="mx-auto max-w-2xl px-4 pb-24">
+      {/* Back */}
+      <div className="py-4">
+        <Link href="/" className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-stone-500 hover:text-red-600 dark:text-stone-400">
+          <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
           Back
@@ -68,89 +51,71 @@ export default function BrandPage() {
       </div>
 
       {/* Brand Header */}
-      <div className="flex flex-col items-center pb-6 pt-2 text-center">
-        <div className="mb-4 text-5xl">{brand.logo}</div>
-        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-          {brand.name}
-        </h2>
-        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-          {brand.category}
-        </p>
-
-        {/* Rating */}
-        <div className="mt-4 flex items-center gap-3">
-          <RatingCircle rating={brand.ethicalRating} size="lg" />
-          <div className="text-left">
-            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
-              {getRatingLabel(brand.ethicalRating)}
-            </p>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Ethical Rating
-            </p>
+      <div className="flex items-start gap-4 pb-6">
+        <RatingCircle rating={brand.ethicalRating} size="lg" />
+        <div>
+          <span className="text-3xl">{brand.logo}</span>
+          <h2 className="mt-1 text-2xl font-black tracking-tight text-stone-900 dark:text-stone-100">
+            {brand.name}
+          </h2>
+          <p className="text-sm text-stone-500 dark:text-stone-400">{brand.category}</p>
+          <div className={`mt-2 inline-block rounded border px-2 py-0.5 text-xs font-black ${getRatingColor(brand.ethicalRating)}`}>
+            {brand.ethicalRating} — {getRatingLabel(brand.ethicalRating)}
           </div>
         </div>
       </div>
 
-      {/* Rating Bar */}
-      <div className="mb-6 rounded-2xl border border-slate-100 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
+      {/* Rating bar */}
+      <div className="rounded-xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900">
         <RatingBar rating={brand.ethicalRating} />
-        <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
-          {brand.description}
-        </p>
+        <p className="mt-3 text-xs text-stone-500 dark:text-stone-400">{brand.description}</p>
       </div>
 
-      {/* Ownership Chain */}
+      {/* ═══ OWNERSHIP CHAIN ═══ */}
       {parent && (
-        <div className="mb-6 rounded-2xl border border-slate-100 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
-          <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-            Ownership Chain
-          </h3>
-          <div className="flex flex-col gap-3">
-            {/* Corporation */}
-            <Link
-              href={`/corporation/${parent.slug}`}
-              className="flex items-center gap-3 rounded-xl border border-slate-100 p-3 transition-colors hover:bg-slate-50 dark:border-slate-800 dark:hover:bg-slate-800"
-            >
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-slate-100 text-lg dark:bg-slate-800">
-                {parent.logo}
-              </div>
-              <div className="flex-1">
-                <p className="text-sm font-semibold text-slate-900 dark:text-white">
-                  {parent.name}
-                </p>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
-                  Parent Corporation • {parent.country}
-                </p>
-              </div>
-              <div
-                className={`rounded-full border px-2 py-0.5 text-[10px] font-bold ${getRatingColor(parent.ethicalRating)}`}
-              >
-                {parent.ethicalRating}
-              </div>
-            </Link>
-
-            {/* Connector */}
-            <div className="flex items-center justify-center">
-              <div className="flex h-6 w-6 items-center justify-center">
-                <svg className="h-4 w-4 text-slate-300 dark:text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                </svg>
-              </div>
+        <div className="mt-4 rounded-xl border-2 border-red-200 bg-red-50/50 p-4 dark:border-red-900 dark:bg-red-950/20">
+          <p className="text-xs font-black uppercase tracking-wider text-red-600 dark:text-red-400">
+            Owned by
+          </p>
+          <Link
+            href={`/corporation/${parent.slug}`}
+            className="group mt-2 flex items-center gap-3 rounded-lg bg-white p-3 transition-all hover:shadow-sm dark:bg-stone-900"
+          >
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-stone-100 text-xl dark:bg-stone-800">
+              {parent.logo}
             </div>
+            <div className="flex-1">
+              <p className="text-sm font-black text-stone-900 dark:text-stone-100">{parent.name}</p>
+              <p className="text-xs text-stone-500">{parent.country} &middot; {parent.revenue}</p>
+            </div>
+            <div className={`rounded border px-1.5 py-0.5 text-[10px] font-black ${getRatingColor(parent.ethicalRating)}`}>
+              {parent.ethicalRating}
+            </div>
+          </Link>
 
-            {/* Brand */}
-            <div className="flex items-center gap-3 rounded-xl border-2 border-blue-200 bg-blue-50 p-3 dark:border-blue-800 dark:bg-blue-950">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-lg dark:bg-slate-800">
-                {brand.logo}
-              </div>
-              <div className="flex-1">
-                <p className="text-sm font-semibold text-slate-900 dark:text-white">
-                  {brand.name}
-                </p>
-                <p className="text-xs text-blue-600 dark:text-blue-400">
-                  This brand • {brand.category}
-                </p>
-              </div>
+          {/* Human owners */}
+          <div className="mt-3">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-red-500 dark:text-red-500">
+              The humans who profit
+            </p>
+            <div className="mt-2 space-y-1">
+              {parent.owners
+                .filter((o) => o.ownershipPercent)
+                .slice(0, 3)
+                .map((owner, i) => (
+                  <div key={i} className="flex items-center justify-between rounded bg-white px-3 py-1.5 dark:bg-stone-900">
+                    <div>
+                      <p className="text-xs font-bold text-stone-800 dark:text-stone-200">{owner.name}</p>
+                      <p className="text-[10px] text-stone-400">{owner.role}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs font-black text-red-600 dark:text-red-400">{owner.ownershipPercent}%</p>
+                      {owner.estimatedValue && (
+                        <p className="text-[10px] text-stone-400">{owner.estimatedValue}</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
         </div>
@@ -158,101 +123,72 @@ export default function BrandPage() {
 
       {/* Corporate Issues */}
       {parent && parent.issues.length > 0 && (
-        <div className="mb-6 rounded-2xl border border-slate-100 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
-          <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-            Known Issues — {parent.name}
-          </h3>
-          <div className="flex flex-col gap-2">
+        <div className="mt-4 rounded-xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900">
+          <p className="text-xs font-black uppercase tracking-wider text-stone-400 dark:text-stone-500">
+            Known issues — {parent.name}
+          </p>
+          <div className="mt-3 space-y-2">
             {parent.issues.map((issue, i) => (
-              <div
-                key={i}
-                className="rounded-xl border border-slate-50 bg-slate-50 p-3 dark:border-slate-800 dark:bg-slate-800/50"
-              >
+              <div key={i} className="rounded-lg bg-stone-50 p-3 dark:bg-stone-800">
                 <div className="flex items-center gap-2">
-                  <span
-                    className={`rounded-full px-2 py-0.5 text-[10px] font-semibold ${getSeverityColor(issue.severity)}`}
-                  >
-                    {issue.severity.toUpperCase()}
+                  <span className={`rounded px-1.5 py-0.5 text-[9px] font-black uppercase ${getSeverityColor(issue.severity)}`}>
+                    {issue.severity}
                   </span>
-                  <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
-                    {issue.category}
-                  </span>
+                  <span className="text-xs font-bold text-stone-700 dark:text-stone-300">{issue.category}</span>
                 </div>
-                <p className="mt-1.5 text-xs text-slate-500 dark:text-slate-400">
-                  {issue.description}
-                </p>
+                <p className="mt-1 text-[11px] text-stone-500 dark:text-stone-400">{issue.description}</p>
+                {issue.source && (
+                  <p className="mt-0.5 text-[9px] italic text-stone-400 dark:text-stone-600">
+                    Source: {issue.source}
+                  </p>
+                )}
               </div>
             ))}
           </div>
         </div>
       )}
 
-      {/* Where to Find - UK Supermarkets */}
-      {brand.supermarkets.length > 0 && (
-        <div className="mb-6 rounded-2xl border border-slate-100 bg-white p-4 dark:border-slate-800 dark:bg-slate-900">
-          <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-            Available at
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {brand.supermarkets.map((store) => {
-              const storeIcons: Record<string, string> = {
-                Tesco: "🔵",
-                "Sainsbury's": "🟠",
-                ASDA: "🟢",
-                Morrisons: "🟡",
-                Waitrose: "🟤",
-                Ocado: "🟣",
-                Boots: "💙",
-                "Co-op": "💚",
-                Superdrug: "💜",
-              };
-              return (
-                <span
-                  key={store}
-                  className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-3 py-1.5 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-300"
-                >
-                  <span>{storeIcons[store] || "🏪"}</span>
-                  {store}
-                </span>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      {/* Ethical Alternatives */}
+      {/* ═══ THE SWITCH ═══ */}
       {alternatives.length > 0 && (
-        <div className="mb-6">
-          <h3 className="mb-3 px-1 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-            Ethical Alternatives
-          </h3>
-          <div className="flex flex-col gap-2">
-            {alternatives.map(
-              (alt) => alt && <BrandCard key={alt.slug} brand={alt} />
-            )}
+        <div className="mt-4">
+          <p className="mb-2 text-xs font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-500">
+            Make the switch
+          </p>
+          <div className="space-y-2">
+            {alternatives.map((alt) => (
+              <AlternativeCard key={alt.slug} alt={alt} />
+            ))}
           </div>
         </div>
       )}
 
-      {/* Sibling Brands */}
+      {/* Available at */}
+      {brand.supermarkets.length > 0 && (
+        <div className="mt-4 rounded-xl border border-stone-200 bg-white p-4 dark:border-stone-800 dark:bg-stone-900">
+          <p className="text-xs font-black uppercase tracking-wider text-stone-400 dark:text-stone-500">
+            Available at
+          </p>
+          <div className="mt-2 flex flex-wrap gap-1.5">
+            {brand.supermarkets.map((store) => (
+              <span key={store} className="rounded bg-stone-100 px-2 py-1 text-xs text-stone-600 dark:bg-stone-800 dark:text-stone-400">
+                {store}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Sibling brands */}
       {siblingBrands.length > 0 && (
-        <div className="mb-6">
-          <h3 className="mb-3 px-1 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+        <div className="mt-6">
+          <p className="mb-2 text-xs font-black uppercase tracking-wider text-stone-400 dark:text-stone-500">
             Also owned by {parent?.name}
-          </h3>
-          <div className="flex flex-col gap-2">
+          </p>
+          <div className="space-y-2">
             {siblingBrands.map((b) => (
               <BrandCard key={b.slug} brand={b} />
             ))}
           </div>
-          {parent && getBrandsByCorporation(parent.slug).length > 6 && (
-            <Link
-              href={`/corporation/${parent.slug}`}
-              className="mt-2 block text-center text-xs font-medium text-blue-600 dark:text-blue-400"
-            >
-              View all {getBrandsByCorporation(parent.slug).length} brands →
-            </Link>
-          )}
         </div>
       )}
     </div>

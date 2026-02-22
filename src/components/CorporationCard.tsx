@@ -4,45 +4,35 @@ import { RatingCircle } from "./RatingBadge";
 
 export default function CorporationCard({ corp }: { corp: Corporation }) {
   const brandCount = getBrandsByCorporation(corp.slug).length;
+  const topOwner = corp.owners.find((o) => o.ownershipPercent);
 
   return (
     <Link
       href={`/corporation/${corp.slug}`}
-      className="group flex items-center gap-3 rounded-2xl border border-slate-100 bg-white p-3 shadow-sm transition-all hover:border-slate-200 hover:shadow-md active:scale-[0.98] dark:border-slate-800 dark:bg-slate-900 dark:hover:border-slate-700"
+      className="group flex items-center gap-3 rounded-xl border border-stone-200 bg-white p-3 transition-all hover:border-red-300 hover:shadow-sm active:scale-[0.98] dark:border-stone-800 dark:bg-stone-900 dark:hover:border-red-800"
     >
       <RatingCircle rating={corp.ethicalRating} size="sm" />
-
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2">
-          <span className="text-lg">{corp.logo}</span>
-          <h3 className="truncate text-sm font-semibold text-slate-900 dark:text-white">
+          <span className="text-base">{corp.logo}</span>
+          <h3 className="truncate text-sm font-bold text-stone-900 dark:text-stone-100">
             {corp.name}
           </h3>
         </div>
-        <div className="mt-0.5 flex items-center gap-2">
-          <span className="text-xs text-slate-500 dark:text-slate-400">
-            {corp.country}
-          </span>
-          <span className="text-xs text-slate-300 dark:text-slate-600">•</span>
-          <span className="text-xs text-slate-400 dark:text-slate-500">
-            {brandCount} brand{brandCount !== 1 ? "s" : ""}
-          </span>
+        <div className="mt-0.5 flex items-center gap-1.5 text-xs text-stone-500 dark:text-stone-500">
+          <span>{brandCount} brand{brandCount !== 1 ? "s" : ""}</span>
+          {topOwner && (
+            <>
+              <span className="text-stone-300 dark:text-stone-700">/</span>
+              <span className="truncate">{topOwner.name.split(" /")[0].split(" (")[0]}</span>
+            </>
+          )}
         </div>
       </div>
-
-      <div
-        className={`rounded-full border px-2 py-0.5 text-[10px] font-bold ${getRatingColor(corp.ethicalRating)}`}
-      >
+      <div className={`rounded border px-1.5 py-0.5 text-[10px] font-black ${getRatingColor(corp.ethicalRating)}`}>
         {corp.ethicalRating}
       </div>
-
-      <svg
-        className="h-4 w-4 flex-shrink-0 text-slate-300 transition-transform group-hover:translate-x-0.5 dark:text-slate-600"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={2}
-      >
+      <svg className="h-4 w-4 flex-shrink-0 text-stone-300 transition-transform group-hover:translate-x-0.5 dark:text-stone-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
       </svg>
     </Link>
