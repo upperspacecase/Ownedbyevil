@@ -16,23 +16,10 @@ export default function Home() {
     <div className="mx-auto max-w-2xl px-4">
       {/* ═══ MANIFESTO HERO ═══ */}
       <section className="pb-8 pt-12 sm:pt-20">
-        <p className="text-xs font-bold uppercase tracking-[0.2em] text-red-600 dark:text-red-500">
-          The uncomfortable truth
-        </p>
         <h2 className="mt-4 text-3xl font-black leading-[1.15] tracking-tight text-stone-900 sm:text-5xl dark:text-stone-50">
-          You think you&apos;re choosing<br />
-          a brand.
-        </h2>
-        <h2 className="mt-2 text-3xl font-black leading-[1.15] tracking-tight text-red-600 sm:text-5xl dark:text-red-500">
-          You&apos;re not.
+          The act of buying is a vote for the kind of world you want to live in.
         </h2>
         <div className="mt-6 max-w-lg space-y-4 text-base leading-relaxed text-stone-600 dark:text-stone-400">
-          <p>
-            That &ldquo;artisan&rdquo; coffee? <strong className="text-stone-900 dark:text-stone-200">Nestlé.</strong>{" "}
-            That &ldquo;ethical&rdquo; smoothie? <strong className="text-stone-900 dark:text-stone-200">Coca-Cola.</strong>{" "}
-            That &ldquo;British&rdquo; chocolate? <strong className="text-stone-900 dark:text-stone-200">An American conglomerate
-            that broke every promise it made.</strong>
-          </p>
           <p>
             12 corporations own almost everything on your supermarket shelf.
             They spend billions making you believe you have a choice.
