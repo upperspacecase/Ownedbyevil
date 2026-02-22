@@ -79,8 +79,8 @@ export const corporations: Corporation[] = [
       { name: "BlackRock Inc.", role: "Largest institutional shareholder", ownershipPercent: 5.1, estimatedValue: "$12.7B", type: "institutional" },
       { name: "Vanguard Group", role: "Major institutional shareholder", ownershipPercent: 3.2, estimatedValue: "$8B", type: "institutional" },
       { name: "Norges Bank (Norway Sovereign Fund)", role: "Sovereign wealth fund", ownershipPercent: 2.9, estimatedValue: "$7.2B", type: "institutional" },
-      { name: "Mark Schneider", role: "CEO (since 2017)", type: "executive" },
-      { name: "Paul Bulcke", role: "Chairman of the Board", type: "executive" },
+      { name: "Philipp Navratil", role: "CEO (since Sept 2025, replaced Schneider)", type: "executive" },
+      { name: "Pablo Isla", role: "Chairman (since Oct 2025, replaced Bulcke)", type: "executive" },
     ],
     issues: [
       { category: "Water Rights", description: "Controversial water extraction in drought-affected communities. Bottled water brands accused of depleting local aquifers.", severity: "high", source: "The Guardian, Corporate Accountability" },
@@ -106,8 +106,8 @@ export const corporations: Corporation[] = [
       { name: "Vanguard Group", role: "Largest institutional shareholder", ownershipPercent: 4.1, estimatedValue: "$6.1B", type: "institutional" },
       { name: "BlackRock Inc.", role: "Major institutional shareholder", ownershipPercent: 3.8, estimatedValue: "$5.7B", type: "institutional" },
       { name: "Leverhulme Trust", role: "Legacy foundation shareholding", ownershipPercent: 1.3, estimatedValue: "$1.9B", type: "institutional" },
-      { name: "Hein Schumacher", role: "CEO (since 2023)", type: "executive" },
-      { name: "Nils Andersen", role: "Chairman", type: "executive" },
+      { name: "Fernando Fernandez", role: "CEO (since March 2025, replaced Schumacher)", type: "executive" },
+      { name: "Ian Meakins", role: "Chairman (since 2023)", type: "executive" },
     ],
     issues: [
       { category: "Deforestation", description: "Palm oil sourcing linked to rainforest destruction in Indonesia and Malaysia.", severity: "high", source: "Greenpeace, Rainforest Action Network" },
@@ -156,8 +156,8 @@ export const corporations: Corporation[] = [
       { name: "Warren Buffett / Berkshire Hathaway", role: "Largest individual shareholder — held since 1988", ownershipPercent: 9.3, estimatedValue: "$24.2B", type: "individual" },
       { name: "Vanguard Group", role: "Largest institutional shareholder", ownershipPercent: 8.5, estimatedValue: "$22.1B", type: "institutional" },
       { name: "BlackRock Inc.", role: "Major institutional shareholder", ownershipPercent: 7.1, estimatedValue: "$18.5B", type: "institutional" },
-      { name: "James Quincey", role: "Chairman & CEO", type: "executive" },
-      { name: "Herbert A. Allen", role: "Director since 1982, Allen & Co.", type: "individual" },
+      { name: "James Quincey", role: "Chairman & CEO (stepping down as CEO March 2026)", type: "executive" },
+      { name: "Henrique Braun", role: "Incoming CEO (effective March 2026), current COO", type: "executive" },
     ],
     issues: [
       { category: "Plastic Pollution", description: "Named world's #1 plastic polluter by Break Free From Plastic for 5 consecutive years (2018-2022).", severity: "high", source: "Break Free From Plastic" },
@@ -227,7 +227,7 @@ export const corporations: Corporation[] = [
     owners: [
       { name: "Vanguard Group", role: "Largest shareholder", ownershipPercent: 8.9, estimatedValue: "$8.5B", type: "institutional" },
       { name: "BlackRock Inc.", role: "Second largest shareholder", ownershipPercent: 7.3, estimatedValue: "$6.9B", type: "institutional" },
-      { name: "Irene Rosenfeld", role: "Former CEO who led Cadbury takeover (2006-2017)", type: "executive" },
+      { name: "Nelson Peltz / Trian Fund", role: "Largest individual shareholder, activist investor", ownershipPercent: 6.0, estimatedValue: "$4.2B", type: "individual" },
       { name: "Dirk Van de Put", role: "Chairman & CEO (since 2017)", type: "executive" },
     ],
     issues: [
@@ -248,7 +248,7 @@ export const corporations: Corporation[] = [
     ethicalRating: "D",
     publiclyTraded: true,
     stockTicker: "KVUE (NYSE)",
-    description: "Spun off from Johnson & Johnson in 2023. Holds the consumer health brands (Johnson's Baby, Listerine, Neutrogena). J&J retained pharma/medtech.",
+    description: "Spun off from Johnson & Johnson in 2023. Holds consumer health brands (Johnson's Baby, Listerine, Neutrogena). J&J fully divested by 2024. Kimberly-Clark announced $48.7B acquisition of Kenvue in Nov 2025 (expected to close H2 2026).",
     owners: [
       { name: "Johnson & Johnson", role: "Retained ~9.5% stake post-IPO (divesting)", ownershipPercent: 9.5, estimatedValue: "$3.8B", type: "institutional" },
       { name: "Vanguard Group", role: "Major shareholder", ownershipPercent: 8.2, estimatedValue: "$3.3B", type: "institutional" },
@@ -297,9 +297,9 @@ export const corporations: Corporation[] = [
     stockTicker: "ABF (LSE)",
     description: "British multinational. The Weston family controls 54.5% through Wittington Investments. Owns Primark, Twinings, Kingsmill, and British Sugar.",
     owners: [
-      { name: "Weston Family / Wittington Investments", role: "Controlling shareholder — Garfield Weston's heirs", ownershipPercent: 54.5, estimatedValue: "$9.8B", type: "family" },
-      { name: "Guy Weston", role: "Family member, Wittington trustee", type: "family" },
-      { name: "George Weston", role: "CEO of ABF (since 2005), Weston family", type: "executive" },
+      { name: "Weston Family / Wittington Investments", role: "Controlling shareholder — 58.8% via Wittington (owned 79.2% by Garfield Weston Foundation)", ownershipPercent: 62.8, estimatedValue: "$11.3B", type: "family" },
+      { name: "Garfield Weston Foundation", role: "Charitable trust owning 79.2% of Wittington. £8.3B in assets, awarded £140M in grants 2024/25", type: "institutional" },
+      { name: "George Weston", role: "CEO (since 2005), great-grandson of founder Garfield Weston", type: "executive" },
     ],
     issues: [
       { category: "Fast Fashion Labour", description: "Primark's supply chain linked to poor working conditions. Rana Plaza factory collapse (2013) killed 1,134 workers making clothes for Primark and others.", severity: "high", source: "Clean Clothes Campaign, ILO" },
@@ -332,16 +332,16 @@ export const corporations: Corporation[] = [
   },
   {
     slug: "ekaterra",
-    name: "Ekaterra (CVC Capital Partners)",
+    name: "Lipton Teas and Infusions (ex-Ekaterra)",
     logo: "🫖",
     country: "Netherlands / Private Equity",
     revenue: "€2B (~$2.2B)",
     employees: "10,000+",
     ethicalRating: "C",
     publiclyTraded: false,
-    description: "World's largest tea company. Acquired from Unilever by CVC Capital Partners in 2022 for €4.5B. Owns PG Tips, Lipton, Pukka, and T2.",
+    description: "World's largest tea company. 34 brands. Acquired from Unilever by CVC Capital Partners in 2022 for €4.5B. Originally named Ekaterra, rebranded to Lipton Teas and Infusions. Owns PG Tips, Lipton, Pukka, T2, TAZO.",
     owners: [
-      { name: "CVC Capital Partners", role: "Private equity owner", ownershipPercent: 100, estimatedValue: "€4.5B", type: "institutional" },
+      { name: "CVC Capital Partners", role: "Private equity owner — acquired from Unilever for €4.5B", ownershipPercent: 100, estimatedValue: "€4.5B", type: "institutional" },
       { name: "Rolly van Rappard", role: "CVC Co-Chairman", type: "executive" },
     ],
     issues: [
